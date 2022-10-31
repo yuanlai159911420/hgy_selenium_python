@@ -4,6 +4,13 @@ from selenium.webdriver.remote.webdriver import WebElement
 
 class LoginPage(object):
     def __init__(self, driver, ini_path, node):
+        """
+        构造函数
+            ::登陆页面元素获取，初始化对象
+        :param driver:
+        :param ini_path:
+        :param node:
+        """
         self.find_element = FindElement(driver, ini_path, node)
 
     def get_username_element(self, key) -> WebElement:
