@@ -36,7 +36,7 @@ class LoginHandle(object):
         :param key:
         :return:
         """
-        self.__login_pg.get_login_button_element(key)
+        self.__login_pg.get_login_button_element(key).click()
 
     def click_radio(self, key):
         """
@@ -44,4 +44,4 @@ class LoginHandle(object):
         :param key:
         :return:
         """
-        self.__login_pg.get_radio_element(key)
+        self.__login_pg.get_radio_element(key).click()
