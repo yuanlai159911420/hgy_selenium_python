@@ -20,6 +20,10 @@ class TestLoginCase(object):
         self.driver.get(url)
 
     def teardown(self):
+        """
+        每个function后面执行一次
+        :return:
+        """
         pass
         # self.driver.close()
 
