@@ -11,7 +11,7 @@ class LoginPage(object):
         :param ini_path:
         :param node:
         """
-        self.find_element = FindElement(driver, ini_path, node)
+        self.__find_element = FindElement(driver, ini_path, node)
 
     def get_username_element(self, key) -> WebElement:
         """
@@ -19,7 +19,7 @@ class LoginPage(object):
         :param key:
         :return:
         """
-        return self.find_element.get_visibility_element(key)
+        return self.__find_element.get_visibility_element(key)
 
     def get_password_element(self, key) -> WebElement:
         """
@@ -27,7 +27,7 @@ class LoginPage(object):
         :param key:
         :return:
         """
-        return self.find_element.get_element(key)
+        return self.__find_element.get_element(key)
 
     def get_login_button_element(self, key) -> WebElement:
         """
@@ -35,7 +35,7 @@ class LoginPage(object):
         :param key:
         :return:
         """
-        return self.find_element.get_element(key)
+        return self.__find_element.get_element(key)
 
     def get_radio_element(self, key) -> WebElement:
         """
@@ -43,4 +43,4 @@ class LoginPage(object):
         :param key:
         :return:
         """
-        return self.find_element.get_element(key)
+        return self.__find_element.get_element(key)
