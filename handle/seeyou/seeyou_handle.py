@@ -36,3 +36,11 @@ class SeeyouHandle(object):
         :return:
         """
         self.__seeyou_pg.get_personContainer_element(key).click()
+
+    def click_onlineServiceIco(self, key):
+        """
+        点击首页onlineServiceIco元素对象
+        :param key:
+        :return:
+        """
+        self.__seeyou_pg.get_onlineServiceIco_element(key).click()

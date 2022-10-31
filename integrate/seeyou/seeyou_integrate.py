@@ -28,8 +28,40 @@ class SeeyouIntegrate(object):
         点击personContainer元素中的logout退出按钮
         :return:
         """
-        key = ""
+        key = "logout"
         self.__seeyou_hd.click_personContainer(key)
+
+    def click_onlineServiceIco_yty(self):
+        """
+        点击onlineServiceIco的岩土分析云图标按钮
+        :return:
+        """
+        key = "onlineServiceIco_yty"
+        self.__seeyou_hd.click_onlineServiceIco(key)
+
+    def click_onlineServiceIco_xty(self):
+        """
+        点击onlineServiceIco的勘察协同云图标按钮
+        :return:
+        """
+        key = "onlineServiceIco_xty"
+        self.__seeyou_hd.click_onlineServiceIco(key)
+
+    def click_onlineServiceIco_ldjsc(self):
+        """
+        点击onlineServiceIco的领导驾驶舱图标按钮
+        :return:
+        """
+        key = "onlineServiceIco_ldjsc"
+        self.__seeyou_hd.click_onlineServiceIco(key)
+
+    def click_onlineServiceIco_xmjsc(self):
+        """
+        点击onlineServiceIco的项目驾驶舱图标按钮
+        :return:
+        """
+        key = "onlineServiceIco_xmjsc"
+        self.__seeyou_hd.click_onlineServiceIco(key)
 
     def click_collaborative_menu(self):
         """

@@ -36,3 +36,11 @@ class SeeyouPage(object):
         :return:
         """
         return self.__find_element.get_clickable_element(key)
+
+    def get_onlineServiceIco_element(self, key):
+        """
+        获取首页onlineServiceIco元素对象
+        :param key:
+        :return:
+        """
+        return self.__find_element.get_visibility_element(key)
