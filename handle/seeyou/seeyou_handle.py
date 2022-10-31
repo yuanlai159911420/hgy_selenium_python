@@ -20,3 +20,19 @@ class SeeyouHandle(object):
         :return:
         """
         self.__seeyou_pg.get_navTitleName_element(key).click()
+
+    def click_settingIco(self, key):
+        """
+        点击settingIco设置按钮
+        :param key:
+        :return:
+        """
+        self.__seeyou_pg.get_settingIco_element(key).click()
+
+    def click_personContainer(self, key):
+        """
+        点击personContainer元素
+        :param key:
+        :return:
+        """
+        self.__seeyou_pg.get_personContainer_element(key).click()

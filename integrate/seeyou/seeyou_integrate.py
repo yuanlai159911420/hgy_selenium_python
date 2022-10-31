@@ -15,6 +15,22 @@ class SeeyouIntegrate(object):
         __node = "SeeyouConfig"
         self.__seeyou_hd = SeeyouHandle(driver, __ini_path, __node)
 
+    def click_settingIco(self):
+        """
+        点击settingIco设置按钮
+        :return:
+        """
+        key = "settingIco"
+        self.__seeyou_hd.click_settingIco(key)
+
+    def click_logout(self):
+        """
+        点击personContainer元素中的logout退出按钮
+        :return:
+        """
+        key = ""
+        self.__seeyou_hd.click_personContainer(key)
+
     def click_collaborative_menu(self):
         """
         点击协同工作菜单按钮
