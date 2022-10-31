@@ -16,8 +16,8 @@ class FindElement(object):
         :param ini_path:
         :param node:
         """
-        self.driver = driver
-        self.read_ini = ReadIni(ini_path, node)
+        self.__driver = driver
+        self.__read_ini = ReadIni(ini_path, node)
 
     def get_element(self, key) -> WebElement | None:
         """
@@ -26,7 +26,7 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
@@ -34,21 +34,21 @@ class FindElement(object):
         try:
             """判断by值"""
             if by == "id":
-                return self.driver.find_element(By.ID, value)
+                return self.__driver.find_element(By.ID, value)
             elif by == "className":
-                return self.driver.find_element(By.CLASS_NAME, value)
+                return self.__driver.find_element(By.CLASS_NAME, value)
             elif by == "name":
-                return self.driver.find_element(By.NAME, value)
+                return self.__driver.find_element(By.NAME, value)
             elif by == "css":
-                return self.driver.find_element(By.CSS_SELECTOR, value)
+                return self.__driver.find_element(By.CSS_SELECTOR, value)
             elif by == "link":
-                return self.driver.find_element(By.LINK_TEXT, value)
+                return self.__driver.find_element(By.LINK_TEXT, value)
             elif by == "linkText":
-                return self.driver.find_element(By.PARTIAL_LINK_TEXT, value)
+                return self.__driver.find_element(By.PARTIAL_LINK_TEXT, value)
             elif by == "tag":
-                return self.driver.find_element(By.TAG_NAME, value)
+                return self.__driver.find_element(By.TAG_NAME, value)
             else:
-                return self.driver.find_element(By.XPATH, value)
+                return self.__driver.find_element(By.XPATH, value)
         except NoSuchElementException:
             return None
 
@@ -59,28 +59,28 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
 
         try:
             if by == "id":
-                return self.driver.find_elements(By.ID, value)
+                return self.__driver.find_elements(By.ID, value)
             elif by == "name":
-                return self.driver.find_elements(By.NAME, value)
+                return self.__driver.find_elements(By.NAME, value)
             elif by == "className":
-                return self.driver.find_elements(By.CLASS_NAME, value)
+                return self.__driver.find_elements(By.CLASS_NAME, value)
             elif by == "css":
-                return self.driver.find_elements(By.CSS_SELECTOR, value)
+                return self.__driver.find_elements(By.CSS_SELECTOR, value)
             elif by == "link":
-                return self.driver.find_elements(By.LINK_TEXT, value)
+                return self.__driver.find_elements(By.LINK_TEXT, value)
             elif by == "linkText":
-                return self.driver.find_elements(By.PARTIAL_LINK_TEXT, value)
+                return self.__driver.find_elements(By.PARTIAL_LINK_TEXT, value)
             elif by == "tag":
-                return self.driver.find_elements(By.TAG_NAME, value)
+                return self.__driver.find_elements(By.TAG_NAME, value)
             else:
-                return self.driver.find_elements(By.XPATH, value)
+                return self.__driver.find_elements(By.XPATH, value)
         except NoSuchElementException:
             return None
 
@@ -91,12 +91,12 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
         """等待对象"""
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.__driver, 20)
 
         try:
             if by == "id":
@@ -125,12 +125,12 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
         """创建等待元素"""
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.__driver, 20)
         try:
             if by == "id":
                 return wait.until(EC.visibility_of_element_located((By.ID, value)))
@@ -158,12 +158,12 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
         """创建等待对象"""
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.__driver, 20)
 
         try:
             if by == "id":
@@ -193,28 +193,28 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
 
         try:
             if by == "id":
-                return self.driver.find_element(locate_with(By.ID, value).above(element))
+                return self.__driver.find_element(locate_with(By.ID, value).above(element))
             elif by == "name":
-                return self.driver.find_element(locate_with(By.NAME, value).above(element))
+                return self.__driver.find_element(locate_with(By.NAME, value).above(element))
             elif by == "className":
-                return self.driver.find_element(locate_with(By.CLASS_NAME, value).above(element))
+                return self.__driver.find_element(locate_with(By.CLASS_NAME, value).above(element))
             elif by == "css":
-                return self.driver.find_element(locate_with(By.CSS_SELECTOR, value).above(element))
+                return self.__driver.find_element(locate_with(By.CSS_SELECTOR, value).above(element))
             elif by == "link":
-                return self.driver.find_element(locate_with(By.LINK_TEXT, value).above(element))
+                return self.__driver.find_element(locate_with(By.LINK_TEXT, value).above(element))
             elif by == "linkText":
-                return self.driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).above(element))
+                return self.__driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).above(element))
             elif by == "tag":
-                return self.driver.find_element(locate_with(By.TAG_NAME, value).above(element))
+                return self.__driver.find_element(locate_with(By.TAG_NAME, value).above(element))
             else:
-                return self.driver.find_element(locate_with(By.XPATH, value).above(element))
+                return self.__driver.find_element(locate_with(By.XPATH, value).above(element))
         except NoSuchElementException:
             return None
 
@@ -226,28 +226,28 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
 
         try:
             if by == "id":
-                return self.driver.find_element(locate_with(By.ID, value).below(element))
+                return self.__driver.find_element(locate_with(By.ID, value).below(element))
             elif by == "name":
-                return self.driver.find_element(locate_with(By.NAME, value).below(element))
+                return self.__driver.find_element(locate_with(By.NAME, value).below(element))
             elif by == "className":
-                return self.driver.find_element(locate_with(By.CLASS_NAME, value).below(element))
+                return self.__driver.find_element(locate_with(By.CLASS_NAME, value).below(element))
             elif by == "css":
-                return self.driver.find_element(locate_with(By.CSS_SELECTOR, value).below(element))
+                return self.__driver.find_element(locate_with(By.CSS_SELECTOR, value).below(element))
             elif by == "link":
-                return self.driver.find_element(locate_with(By.CSS_SELECTOR, value).below(element))
+                return self.__driver.find_element(locate_with(By.CSS_SELECTOR, value).below(element))
             elif by == "linkText":
-                return self.driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).below(element))
+                return self.__driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).below(element))
             elif by == "tag":
-                return self.driver.find_element(locate_with(By.TAG_NAME, value).below(element))
+                return self.__driver.find_element(locate_with(By.TAG_NAME, value).below(element))
             else:
-                return self.driver.find_element(locate_with(By.XPATH, value).below(element))
+                return self.__driver.find_element(locate_with(By.XPATH, value).below(element))
         except NoSuchElementException:
             return None
 
@@ -259,28 +259,28 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
 
         try:
             if by == "id":
-                return self.driver.find_element(locate_with(By.ID, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.ID, value).to_right_of(element))
             elif by == "name":
-                return self.driver.find_element(locate_with(By.NAME, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.NAME, value).to_right_of(element))
             elif by == "className":
-                return self.driver.find_element(locate_with(By.CLASS_NAME, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.CLASS_NAME, value).to_right_of(element))
             elif by == "css":
-                return self.driver.find_element(locate_with(By.CSS_SELECTOR, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.CSS_SELECTOR, value).to_right_of(element))
             elif by == "link":
-                return self.driver.find_element(locate_with(By.LINK_TEXT, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.LINK_TEXT, value).to_right_of(element))
             elif by == "linkText":
-                return self.driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).to_right_of(element))
             elif by == "tag":
-                return self.driver.find_element(locate_with(By.TAG_NAME, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.TAG_NAME, value).to_right_of(element))
             else:
-                return self.driver.find_element(locate_with(By.XPATH, value).to_right_of(element))
+                return self.__driver.find_element(locate_with(By.XPATH, value).to_right_of(element))
         except NoSuchElementException:
             return None
 
@@ -292,27 +292,27 @@ class FindElement(object):
         :return:
         """
         """获取数据"""
-        data = self.read_ini.get_data(key)
+        data = self.__read_ini.get_data(key)
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
 
         try:
             if by == "id":
-                return self.driver.find_element(locate_with(By.ID, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.ID, value).to_left_of(element))
             elif by == "name":
-                return self.driver.find_element(locate_with(By.NAME, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.NAME, value).to_left_of(element))
             elif by == "className":
-                return self.driver.find_element(locate_with(By.CLASS_NAME, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.CLASS_NAME, value).to_left_of(element))
             elif by == "css":
-                return self.driver.find_element(locate_with(By.CSS_SELECTOR, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.CSS_SELECTOR, value).to_left_of(element))
             elif by == "link":
-                return self.driver.find_element(locate_with(By.LINK_TEXT, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.LINK_TEXT, value).to_left_of(element))
             elif by == "linkText":
-                return self.driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.PARTIAL_LINK_TEXT, value).to_left_of(element))
             elif by == "tag":
-                return self.driver.find_element(locate_with(By.TAG_NAME, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.TAG_NAME, value).to_left_of(element))
             else:
-                return self.driver.find_element(locate_with(By.XPATH, value).to_left_of(element))
+                return self.__driver.find_element(locate_with(By.XPATH, value).to_left_of(element))
         except NoSuchElementException:
             return None
