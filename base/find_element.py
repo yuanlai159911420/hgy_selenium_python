@@ -19,10 +19,11 @@ class FindElement(object):
         self.__driver = driver
         self.__read_ini = ReadIni(ini_path, node)
 
-    def get_element(self, key) -> WebElement | None:
+    def get_element(self, key, element=None) -> WebElement | None:
         """
         获取WebElement对象
         :param key:
+        :param element: 在需要传入一个element时就使用该变量
         :return:
         """
         """获取数据"""
@@ -30,32 +31,35 @@ class FindElement(object):
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
+        """判断是否传入了element对象"""
+        element = self.__driver if element is None else element
 
         try:
             """判断by值"""
             if by == "id":
-                return self.__driver.find_element(By.ID, value)
+                return element.find_element(By.ID, value)
             elif by == "className":
-                return self.__driver.find_element(By.CLASS_NAME, value)
+                return element.find_element(By.CLASS_NAME, value)
             elif by == "name":
-                return self.__driver.find_element(By.NAME, value)
+                return element.find_element(By.NAME, value)
             elif by == "css":
-                return self.__driver.find_element(By.CSS_SELECTOR, value)
+                return element.find_element(By.CSS_SELECTOR, value)
             elif by == "link":
-                return self.__driver.find_element(By.LINK_TEXT, value)
+                return element.find_element(By.LINK_TEXT, value)
             elif by == "linkText":
-                return self.__driver.find_element(By.PARTIAL_LINK_TEXT, value)
+                return element.find_element(By.PARTIAL_LINK_TEXT, value)
             elif by == "tag":
-                return self.__driver.find_element(By.TAG_NAME, value)
+                return element.find_element(By.TAG_NAME, value)
             else:
-                return self.__driver.find_element(By.XPATH, value)
+                return element.find_element(By.XPATH, value)
         except NoSuchElementException:
             return None
 
-    def get_elements(self, key) -> List[WebElement] | None:
+    def get_elements(self, key, element=None) -> List[WebElement] | None:
         """
         获取WebElement列表对象
         :param key:
+        :param element:
         :return:
         """
         """获取数据"""
@@ -63,24 +67,26 @@ class FindElement(object):
         """拆分数据"""
         by = data.split("->")[0]
         value = data.split("->")[1]
+        """判断是否传入了element对象"""
+        element = self.__driver if element is None else element
 
         try:
             if by == "id":
-                return self.__driver.find_elements(By.ID, value)
+                return element.find_elements(By.ID, value)
             elif by == "name":
-                return self.__driver.find_elements(By.NAME, value)
+                return element.find_elements(By.NAME, value)
             elif by == "className":
-                return self.__driver.find_elements(By.CLASS_NAME, value)
+                return element.find_elements(By.CLASS_NAME, value)
             elif by == "css":
-                return self.__driver.find_elements(By.CSS_SELECTOR, value)
+                return element.find_elements(By.CSS_SELECTOR, value)
             elif by == "link":
-                return self.__driver.find_elements(By.LINK_TEXT, value)
+                return element.find_elements(By.LINK_TEXT, value)
             elif by == "linkText":
-                return self.__driver.find_elements(By.PARTIAL_LINK_TEXT, value)
+                return element.find_elements(By.PARTIAL_LINK_TEXT, value)
             elif by == "tag":
-                return self.__driver.find_elements(By.TAG_NAME, value)
+                return element.find_elements(By.TAG_NAME, value)
             else:
-                return self.__driver.find_elements(By.XPATH, value)
+                return element.find_elements(By.XPATH, value)
         except NoSuchElementException:
             return None
 

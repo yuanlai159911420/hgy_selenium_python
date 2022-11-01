@@ -16,6 +16,7 @@ class ZWIframePage(object):
         self.__driver = driver
         self._ini_path = ini_path
         self.__node = node
+        self.find_element = FindElement(self.__driver, self._ini_path, self.__node)
 
     def get_zwIframe_element(self, key) -> WebElement:
         """
@@ -197,6 +198,14 @@ class ZWIframePage(object):
     def get_cap4_condition_button_reset_element(self, key) -> WebElement:
         """
         获取cap4-condition-button__reset重置按钮对象
+        :param key:
+        :return:
+        """
+        return FindElement(self.__driver, self._ini_path, self.__node).get_element(key)
+
+    def get_RelationPage_main_common_button_emphasize_element(self, key) -> WebElement:
+        """
+        获取common_button_emphasize确定按钮对象
         :param key:
         :return:
         """
