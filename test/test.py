@@ -15,3 +15,4 @@ if __name__ == '__main__':
     # password_ele = locate_with(By.ID, "password").below(username_ele)
     password_ele = locate_with(By.ID, "password").below({By.ID: "username"})
     driver.find_element(password_ele).send_keys("1234")
+    driver.switch_to.window()
