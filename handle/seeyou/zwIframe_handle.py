@@ -186,6 +186,27 @@ class ZWIframeHandle(object):
         self.__actions.send_keys_to_element(self.__zwIframe_pg.get_cap4_textarea_cnt_element(element, key), expect,
                                             Keys.TAB).perform()
 
+    def send_cap4_date_cnt(self, element: WebElement, key, expect):
+        """
+        输入cap4-date__cnt输入框
+        :param element:
+        :param key:
+        :param expect:
+        :return:
+        """
+        self.__actions.send_keys_to_element(self.__zwIframe_pg.get_cap4_date_cnt_element(element, key), expect,
+                                            Keys.TAB).perform()
+
+    def click_cap4_date_picker(self, element: WebElement, key):
+        """
+        点击cap4-date__picker弹窗
+        :param element:
+        :param key:
+        :return:
+        """
+        ele = self.__zwIframe_pg.get_cap4_date_picker_element(element, key)
+        self.__actions.scroll_to_element(ele).move_to_element(ele).click().perform()
+
     """toogle_RelationPage_main"""
 
     def toogle_RelationPage_main(self, key):

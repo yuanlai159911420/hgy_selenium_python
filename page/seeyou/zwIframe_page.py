@@ -157,6 +157,24 @@ class ZWIframePage(object):
         """
         return self.find_element.get_element(key, element)
 
+    def get_cap4_date_cnt_element(self, element: WebElement, key) -> WebElement:
+        """
+        获取cap4-date__cnt输入框对象
+        :param element:
+        :param key:
+        :return:
+        """
+        return self.find_element.get_element(key, element)
+
+    def get_cap4_date_picker_element(self, element: WebElement, key) -> WebElement:
+        """
+        获取cap4-date__picker弹窗对象
+        :param element:
+        :param key:
+        :return:
+        """
+        return self.find_element.get_element(key, element)
+
     """RelationPage_main"""
 
     def get_RelationPage_main_element(self, key) -> WebElement:

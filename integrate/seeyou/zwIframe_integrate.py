@@ -138,6 +138,25 @@ class ZWIframeIntegrate(object):
         key = "cap4_textarea_cnt"
         self.__zwIframe_hd.send_cap4_textarea_cnt(element, key, expect)
 
+    def send_cap4_date_cnt(self, element: WebElement, expect):
+        """
+        输入cap4-date__cnt输入框
+        :param element:
+        :param expect:
+        :return:
+        """
+        key = "cap4_date_cnt"
+        self.__zwIframe_hd.send_cap4_date_cnt(element, key, expect)
+
+    def click_cap4_date_picker(self, element: WebElement):
+        """
+        点击cap4-date__picker弹窗
+        :param element:
+        :return:
+        """
+        key = "cap4_date_picker"
+        self.__zwIframe_hd.click_cap4_date_picker(element, key)
+
     """RelationPage_main"""
 
     def toogle_toogle_RelationPage_main(self):
