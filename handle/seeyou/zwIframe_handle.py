@@ -194,6 +194,7 @@ class ZWIframeHandle(object):
         :param key:
         :return:
         """
+        self.__driver.switch_to.default_content()
         self.__driver.switch_to.window(self.__zwIframe_pg.get_RelationPage_main_element(key))
 
     def send_cap4_condition_flex(self, element: WebElement, key, expect):
@@ -246,6 +247,7 @@ class ZWIframeHandle(object):
         :param key:
         :return:
         """
+        self.__driver.switch_to.default_content()
         self.__zwIframe_pg.get_RelationPage_main_common_button_emphasize_element(key).click()
 
     def click_RelationPage_main_common_button_gray(self, key):
@@ -254,4 +256,5 @@ class ZWIframeHandle(object):
         :param key:
         :return:
         """
+        self.__driver.switch_to.default_content()
         self.__zwIframe_pg.get_RelationPage_main_common_button_gray_element(key).click()
