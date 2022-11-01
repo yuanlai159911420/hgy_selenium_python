@@ -205,3 +205,19 @@ class ZWIframeHandle(object):
         :return:
         """
         self.__zwIframe_pg.get_cap4_condition_flex_element(element, key).send_keys(expect)
+
+    def click_cap4_condition_button_filter(self, key):
+        """
+        点击cap4-condition-button__filter筛选按钮
+        :param key:
+        :return:
+        """
+        self.__zwIframe_pg.get_cap4_condition_button_filter_element(key).click()
+
+    def click_cap4_condition_button_reset(self, key):
+        """
+        点击cap4-condition-button__reset重置按钮
+        :param key:
+        :return:
+        """
+        self.__zwIframe_pg.get_cap4_condition_button_reset_element(key).click()

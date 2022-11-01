@@ -158,6 +158,22 @@ class ZWIframeIntegrate(object):
         key = "cap4_condition_flex"
         self.__zwIframe_hd.send_cap4_condition_flex(element, key, expect)
 
+    def click_cap4_condition_button_filter(self):
+        """
+        点击cap4-condition-button__filter筛选按钮
+        :return:
+        """
+        key = "cap4_condition_button_filter"
+        self.__zwIframe_hd.click_cap4_condition_button_filter(key)
+
+    def click_cap4_condition_button_reset(self):
+        """
+        点击cap4-condition-button__reset重置按钮
+        :return:
+        """
+        key = "cap4_condition_button_reset"
+        self.__zwIframe_hd.click_cap4_condition_button_reset(key)
+
 
 if __name__ == '__main__':
     zwIframe_ig = ZWIframeIntegrate("123")
