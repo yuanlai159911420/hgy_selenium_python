@@ -174,6 +174,30 @@ class ZWIframeIntegrate(object):
         key = "cap4_condition_button_reset"
         self.__zwIframe_hd.click_cap4_condition_button_reset(key)
 
+    def click_RelationPage_main_v_easy_table_row(self):
+        """
+        选择v-easy-table-row对象
+        :return:
+        """
+        key = "RelationPage_main_v_easy_table_row"
+        self.__zwIframe_hd.click_RelationPage_main_v_easy_table_row(key)
+
+    def click_RelationPage_main_common_button_emphasize(self):
+        """
+        点击RelationPage_main页面中的common_button_emphasize确定按钮
+        :return:
+        """
+        key = "RelationPage_main_common_button_emphasize"
+        self.__zwIframe_hd.click_RelationPage_main_common_button_emphasize(key)
+
+    def click_RelationPage_main_common_button_gray(self):
+        """
+        点击RelationPage_main页面中的common_button_gray取消按钮
+        :return:
+        """
+        key = "RelationPage_main_common_button_gray"
+        self.__zwIframe_hd.click_RelationPage_main_common_button_gray(key)
+
 
 if __name__ == '__main__':
     zwIframe_ig = ZWIframeIntegrate("123")

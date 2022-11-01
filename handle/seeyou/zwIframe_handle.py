@@ -229,3 +229,29 @@ class ZWIframeHandle(object):
         :return:
         """
         self.__zwIframe_pg.get_cap4_condition_button_reset_element(key).click()
+
+    def click_RelationPage_main_v_easy_table_row(self, key):
+        """
+        点击v-easy-table-row对象
+        :param key:
+        :return:
+        """
+        """随机选择获取一个对象"""
+        ele = random.choice(self.__zwIframe_pg.get_RelationPage_main_v_easy_table_row_elements(key))
+        self.__actions.scroll_to_element(ele).move_to_element(ele).click().perform()
+
+    def click_RelationPage_main_common_button_emphasize(self, key):
+        """
+        点击RelationPage_main页面中的common_button_emphasize确定按钮
+        :param key:
+        :return:
+        """
+        self.__zwIframe_pg.get_RelationPage_main_common_button_emphasize_element(key).click()
+
+    def click_RelationPage_main_common_button_gray(self, key):
+        """
+        点击RelationPage_main页面中的common_button_gray取消按钮
+        :param key:
+        :return:
+        """
+        self.__zwIframe_pg.get_RelationPage_main_common_button_gray_element(key).click()

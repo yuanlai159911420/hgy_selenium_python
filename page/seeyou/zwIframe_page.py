@@ -200,9 +200,25 @@ class ZWIframePage(object):
         """
         return self.find_element.get_element(key)
 
+    def get_RelationPage_main_v_easy_table_row_elements(self, key) -> List[WebElement]:
+        """
+        获取v-easy-table-row列表对象
+        :param key:
+        :return:
+        """
+        return self.find_element.get_elements(key)
+
     def get_RelationPage_main_common_button_emphasize_element(self, key) -> WebElement:
         """
-        获取common_button_emphasize确定按钮对象
+        获取RelationPage_main页面中的common_button_emphasize确定按钮独享
+        :param key:
+        :return:
+        """
+        return self.find_element.get_element(key)
+
+    def get_RelationPage_main_common_button_gray_element(self, key) -> WebElement:
+        """
+        获取RelationPage_main页面中的common_button_gray确定按钮对象
         :param key:
         :return:
         """
