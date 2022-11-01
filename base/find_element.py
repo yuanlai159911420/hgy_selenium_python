@@ -90,11 +90,10 @@ class FindElement(object):
         except NoSuchElementException:
             return None
 
-    def get_presence_element(self, key, element: WebElement = None) -> WebElement | None:
+    def get_presence_element(self, key) -> WebElement | None:
         """
         等待获取WebElement对象，只要dom树结构加载完成就行
         :param key:
-        :param element:
         :return:
         """
         """获取数据"""
@@ -104,8 +103,6 @@ class FindElement(object):
         value = data.split("->")[1]
         """等待对象"""
         wait = WebDriverWait(self.__driver, 20)
-        """判断是否传入了element对象"""
-        element = self.__driver if element is None else element
 
         try:
             if by == "id":
