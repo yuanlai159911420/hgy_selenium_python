@@ -178,6 +178,14 @@ class ZWIframePage(object):
         """
         return FindElement(self.__driver, self._ini_path, self.__node).get_right_element(element, key)
 
+    def get_cap4_condition_more_element(self, key) -> WebElement:
+        """
+        获取cap4-condition-more按钮对象
+        :param key:
+        :return:
+        """
+        return FindElement(self.__driver, self._ini_path, self.__node).get_element(key)
+
     def get_cap4_condition_button_filter_element(self, key) -> WebElement:
         """
         获取cap4-condition-button__filter筛选按钮对象
