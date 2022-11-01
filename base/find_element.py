@@ -19,7 +19,7 @@ class FindElement(object):
         self.__driver = driver
         self.__read_ini = ReadIni(ini_path, node)
 
-    def get_element(self, key, element=None) -> WebElement | None:
+    def get_element(self, key, element: WebElement = None) -> WebElement | None:
         """
         获取WebElement对象
         :param key:
@@ -55,7 +55,7 @@ class FindElement(object):
         except NoSuchElementException:
             return None
 
-    def get_elements(self, key, element=None) -> List[WebElement] | None:
+    def get_elements(self, key, element: WebElement = None) -> List[WebElement] | None:
         """
         获取WebElement列表对象
         :param key:
@@ -90,10 +90,11 @@ class FindElement(object):
         except NoSuchElementException:
             return None
 
-    def get_presence_element(self, key) -> WebElement | None:
+    def get_presence_element(self, key, element: WebElement = None) -> WebElement | None:
         """
         等待获取WebElement对象，只要dom树结构加载完成就行
         :param key:
+        :param element:
         :return:
         """
         """获取数据"""
@@ -103,6 +104,8 @@ class FindElement(object):
         value = data.split("->")[1]
         """等待对象"""
         wait = WebDriverWait(self.__driver, 20)
+        """判断是否传入了element对象"""
+        element = self.__driver if element is None else element
 
         try:
             if by == "id":
